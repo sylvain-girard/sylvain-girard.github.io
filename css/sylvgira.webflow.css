@@ -1046,7 +1046,7 @@ a:hover {
   }
 
   .dropdown-toggle-3 {
-    display: none;
+    display: block;
   }
 
   .icon {
@@ -1231,7 +1231,7 @@ a:hover {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 30%;
+    width: 40%;
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
@@ -1336,7 +1336,7 @@ a:hover {
   .heading-7 {
     display: block;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 0px;
     font-family: Syne, sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -1348,7 +1348,7 @@ a:hover {
     top: 0%;
     right: 0%;
     bottom: 0%;
-    display: none;
+    display: block;
     margin-top: 15px;
     margin-left: 0px;
     -webkit-box-orient: horizontal;
@@ -1363,6 +1363,8 @@ a:hover {
   }
 
   .dropdown-list {
+    display: block;
+    width: 150%;
     opacity: 1;
   }
 
@@ -1518,7 +1520,7 @@ a:hover {
   }
 
   .div-block-2 {
-    width: 50%;
+    width: 60%;
   }
 
   .pageheadings {
@@ -1567,9 +1569,13 @@ a:hover {
   }
 
   .heading-7 {
-    margin-left: 20px;
+    margin-left: 0px;
     font-size: 1.5vh;
     line-height: 2vh;
+  }
+
+  .dropdown-list {
+    width: 130%;
   }
 
   .dropdown-list.w--open {
