@@ -806,6 +806,10 @@ a:hover {
   padding-left: 3px;
 }
 
+.about.link-hover.heading-7 {
+  display: none;
+}
+
 .silvan {
   display: -webkit-box;
   display: -webkit-flex;
@@ -863,15 +867,16 @@ a:hover {
 }
 
 .background-video-2 {
-  position: fixed;
+  position: absolute;
   left: 0%;
   top: 0%;
   right: auto;
   bottom: auto;
   z-index: -10;
   display: block;
+  min-height: 60vh;
   min-width: 65%;
-  margin-top: 13px;
+  margin-top: 32px;
   margin-bottom: 0px;
   margin-left: 180px;
 }
@@ -918,7 +923,6 @@ a:hover {
 .hometop {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 20px;
 }
 
 .background-video-3 {
@@ -956,6 +960,36 @@ a:hover {
 
 .lottie-animation-2 {
   width: 75%;
+}
+
+.container-5 {
+  display: none;
+}
+
+.lottielogo {
+  display: block;
+}
+
+.lottielogo.home {
+  padding: 0px;
+}
+
+.tiftt {
+  display: inline;
+}
+
+.background-video-7 {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: -10;
+  display: block;
+  width: auto;
+  height: 120vh;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 @media screen and (max-width: 991px) {
@@ -1145,9 +1179,8 @@ a:hover {
   }
 
   .aboutpara {
-    margin-top: 212px;
-    font-size: 14px;
-    line-height: 18px;
+    width: 55vw;
+    margin-top: 100px;
   }
 
   ._4grid {
@@ -1170,9 +1203,20 @@ a:hover {
   }
 
   .background-video-2 {
-    height: 50vh;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 90%;
+    min-height: 35vh;
+    min-width: auto;
     margin-top: 179px;
-    margin-left: 61px;
+    margin-left: 0px;
+    padding-left: 0px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
   }
 
   .grid-2 {
@@ -1192,7 +1236,7 @@ a:hover {
 
   .background-video-4 {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
   }
 
   .lottie-animation-2 {
@@ -1200,11 +1244,19 @@ a:hover {
   }
 
   .background-video-5 {
-    height: 65vh;
+    height: 50vh;
   }
 
   .background-video-6 {
-    height: 65vh;
+    height: 50vh;
+  }
+
+  .background-video-7 {
+    left: 0%;
+    top: 0%;
+    right: -157%;
+    bottom: 0%;
+    width: auto;
   }
 }
 
@@ -1221,6 +1273,10 @@ a:hover {
     display: block;
   }
 
+  .heading-3.link-hover {
+    display: none;
+  }
+
   .div-block {
     display: none;
   }
@@ -1231,7 +1287,13 @@ a:hover {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 40%;
+    width: 90%;
+    margin-right: 0px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
@@ -1329,14 +1391,27 @@ a:hover {
     grid-template-rows: auto auto;
   }
 
+  .div-block-7 {
+    display: none;
+  }
+
   .div-block-8 {
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
   }
 
   .heading-7 {
     display: block;
     margin-top: 10px;
-    margin-left: 0px;
+    margin-left: 31px;
     font-family: Syne, sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -1349,7 +1424,7 @@ a:hover {
     right: 0%;
     bottom: 0%;
     display: block;
-    margin-top: 15px;
+    margin-top: 0px;
     margin-left: 0px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1363,7 +1438,7 @@ a:hover {
   }
 
   .dropdown-list {
-    display: block;
+    display: none;
     width: 150%;
     opacity: 1;
   }
@@ -1372,6 +1447,10 @@ a:hover {
     width: 200%;
     background-color: hsla(0, 0%, 100%, 0);
     opacity: 0.81;
+  }
+
+  .dropdown {
+    margin-left: 0px;
   }
 
   .dropdown-2 {
@@ -1388,6 +1467,15 @@ a:hover {
 
   .pagenav {
     display: block;
+  }
+
+  .link-img-hover.w--current {
+    width: 20%;
+    height: 7vh;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
   }
 
   .heading-noclick {
@@ -1450,8 +1538,8 @@ a:hover {
   }
 
   .aboutpara {
-    width: 55vw;
-    margin-top: 149px;
+    width: 60vw;
+    margin-top: 100px;
     -webkit-column-count: auto;
     column-count: auto;
   }
@@ -1462,6 +1550,39 @@ a:hover {
 
   .about {
     display: block;
+  }
+
+  .about.link-hover.heading-3 {
+    display: block;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+
+  .about.link-hover.heading-7 {
+    display: block;
+    width: auto;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
+    align-self: auto;
   }
 
   .silvan {
@@ -1479,9 +1600,24 @@ a:hover {
   }
 
   .background-video-2 {
-    height: 35vh;
-    margin-top: 322px;
-    margin-left: 28px;
+    left: -3%;
+    top: 0%;
+    right: auto;
+    bottom: 0%;
+    width: 100%;
+    height: 30vh;
+    min-height: auto;
+    margin-top: 300px;
+    margin-left: 0px;
+  }
+
+  .lottie-animation {
+    width: 100%;
+    height: 7vh;
+  }
+
+  .grid-2 {
+    margin-bottom: 20px;
   }
 
   .homediv {
@@ -1506,21 +1642,73 @@ a:hover {
 
   .background-video-4 {
     width: 100%;
-    height: 40vh;
+    height: 35vh;
   }
 
   .lottie-animation-2 {
     width: 100%;
+  }
+
+  .background-video-5 {
+    height: 45vh;
+  }
+
+  .background-video-6 {
+    height: 45vh;
+  }
+
+  .container-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    margin-bottom: 20px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    opacity: 0.2;
+  }
+
+  .icons {
+    display: block;
+    height: 4vh;
+    padding-top: 0px;
+    padding-right: 20px;
+  }
+
+  .image-16 {
+    height: 5vh;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .mail {
+    height: 4vh;
+    margin-top: 0px;
+    margin-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .lottielogo.w--current {
+    width: 20%;
+    height: 7vh;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+  }
+
+  .tiftt {
+    font-size: 100%;
   }
 }
 
 @media screen and (max-width: 479px) {
   .body {
     margin-bottom: 0px;
-  }
-
-  .div-block-2 {
-    width: 60%;
   }
 
   .pageheadings {
@@ -1569,9 +1757,13 @@ a:hover {
   }
 
   .heading-7 {
-    margin-left: 0px;
-    font-size: 1.5vh;
+    margin-left: 15px;
+    font-size: 1.3vh;
     line-height: 2vh;
+  }
+
+  .dropdown-toggle-2 {
+    padding-left: 0px;
   }
 
   .dropdown-list {
@@ -1584,6 +1776,10 @@ a:hover {
 
   .div-block-9 {
     min-width: 150px;
+  }
+
+  .link-img-hover.w--current {
+    width: 25%;
   }
 
   .imagegrid3col {
@@ -1609,7 +1805,7 @@ a:hover {
 
   .aboutheading {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 40px;
     margin-bottom: 0px;
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -1622,14 +1818,13 @@ a:hover {
 
   .aboutpara {
     width: 85vw;
-    margin-top: 225px;
+    margin-top: 100px;
     font-size: 15px;
     line-height: 20px;
     text-align: left;
   }
 
   .link-txt-hover {
-    font-size: 13px;
     line-height: 14px;
     text-align: center;
   }
@@ -1641,6 +1836,10 @@ a:hover {
 
   ._4grid {
     margin-bottom: 20px;
+  }
+
+  .about.link-hover.heading-7 {
+    margin-left: 0px;
   }
 
   .silvan {
@@ -1661,19 +1860,25 @@ a:hover {
     right: 0%;
     bottom: 0%;
     display: block;
-    width: 80%;
-    height: 25vh;
+    width: 100%;
+    height: 23vh;
     min-width: auto;
     margin-top: 219px;
     margin-right: 0px;
-    margin-left: 79px;
+    margin-left: 20px;
     -webkit-box-flex: 0;
     -webkit-flex: 0 auto;
     -ms-flex: 0 auto;
     flex: 0 auto;
   }
 
+  .grid-2 {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
   .homimg {
+    margin-bottom: 20px;
     padding: 0px;
   }
 
@@ -1690,18 +1895,37 @@ a:hover {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .background-video-4 {
-    height: 20vh;
+    height: 25vh;
   }
 
   .background-video-5 {
-    height: 35vh;
+    height: 30vh;
   }
 
   .background-video-6 {
-    height: 35vh;
+    height: 30vh;
+  }
+
+  .lottielogo {
+    width: 27.327474%;
+  }
+
+  .lottielogo.w--current {
+    width: 25%;
+  }
+
+  .tiftt {
+    text-align: center;
+  }
+
+  .background-video-7 {
+    right: -304%;
+    height: 100vh;
   }
 }
 
