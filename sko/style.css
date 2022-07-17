@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Syne:wght@500&display=swap');
+
+@keyframes vars {
+  0% {
+     font-variation-settings: "wght" 100;
+  }
+
+   100% {
+     font-variation-settings: "wght" 400;
+  }
+}
+
+@font-face {
+  font-family:'vartext';
+  src: url('uchen-regular.woff2')format('woff2');
+  font-weight: 100 900;
+}
+
+:root {
+  --dur:30s;
+}
+
+body {
+	font-family: Nunito Sans;
+	font-size: 16px;
+	line-height: 1.5;
+  background-color: #f6f7f0;
+	color: #333333;
+	margin: 40px 50px 50px auto;
+	width: 1120px;
+  
+}
+
+div.head{
+  display: block;
+  width: 110px;
+
+}
+
+div.head h1{
+  font-family: vartext;
+  font-size: 30px;
+  font-weight:  100;
+/*font-variation-settings: "wght" 100;
+animation: vars var(--dur) infinite linear both;*/
+  margin: 50px 0 0 0;
+}
+
+div.head a {
+font-family: vartext;
+font-size: 5rem;
+font-variation-settings: "wght" 100;
+animation: vars var(--dur) infinite linear both;
+color: #333333;
+text-decoration: none;
+line-height: 1.3;
+margin: 0 0 160px 0;
+
+
+}
+
+div.head a:hover {
+  color: #85816b;
+  transition: 0.4;
+} 
+
+header{
+  display: block;
+  position: fixed;
+  left: 50px;
+  width: 110px;
+}
+
+nav{
+
+  width: 80px;
+  font-family: Syne ;
+  font-size: 15px;
+	font-weight: 600;
+  margin: 40px 0 0 0px;
+
+}
+
+
+
+h1, footer {
+  font-family: Syne ;
+  font-size: 20px;
+	font-weight: 600;
+  line-height: 1.5;
+}
+
+h2{
+  
+font-family: vartext;
+font-size: 4rem;
+font-variation-settings: "wght" 100;
+animation: vars var(--dur) infinite linear both;
+line-height: 1.3;
+margin: 0 0 16px 0;
+}
+
+h3{
+  font-family: Nunito Sans ;
+  font-size: 16px;
+	font-weight: 800;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+  color: rgba(26, 26, 26, 0.2);
+}
+
+nav a {
+  color: #333333;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+nav a:hover {
+
+ margin: 0 0 0 5px;
+}
+
+p a {
+   color: #cca3ff;
+  text-decoration: none;
+	transition: .3s ease-in-out;
+}
+
+ p a:hover {
+ text-decoration: underline;
+	filter: grayscale(100%);
+}
+
+section {
+  margin:50px 0 80px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px 32px;
+}
+
+section a {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+section a:hover {
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+section.project a {
+  grid-column: 1/span 8;
+}
+
+section.project div {
+  grid-column: 9/span 4;
+}
+
+section.projectleft a {
+  grid-column: 5/span 8;
+}
+
+section.projectleft div {
+  grid-column: 1/span 4;
+  text-align: right;
+}
+
+section.projectpage h2 {
+  font-family: vartext;
+	font-size: 120px;
+	font-weight:100;
+	line-height: 1;
+	margin: 0 0 60px 0;
+  grid-column: 1/span 12;
+}
+
+section.projectpage h1 {
+  	font-size: 30px;
+    grid-column: 1/span 9;
+  text-align: left;
+}
+
+section.projectpage div { /* Page headings*/
+  grid-column: 1/span 9;
+  
+}
+
+section.projectpage p {
+  grid-column: 1/span 7;
+  text-align: left;
+}
+
+section.projectpage h3 {
+  grid-column: 1/span 7;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: -20px;
+
+}
+
+div.imgsingle {
+grid-column: 1/span 7;
+
+}
+
+div.row {
+  display: flex;
+}
+
+div.column {
+  flex: 50%;
+  padding: 5px;
+}
+
+div.column h3{
+  margin-top: 10px;
+}
+
+div.endimg h3 {
+ font-weight: 700;
+  line-height: 1;
+  margin-top: -20px;
+}
+
+div.endimg h1 {
+font-size: 30px;
+grid-column: 1/span 9;
+margin-bottom: 20px;
+}
+
+section.projectpage iframe {
+grid-column: 1/span 9;
+}
+
+div.font{
+  margin-top: 150px;
+  margin-bottom: 50px;
+  grid-column: 1/span 12;
+
+}
+div.font h2{
+  line-height: 0.9;
+  font-size: 150px;
+
+}
+
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+footer p {
+font-family: vartext;
+font-size: 60px;
+
+color: #333333;
+text-decoration: none;
+}
+
+
