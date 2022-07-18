@@ -38,7 +38,7 @@ function setup() {
   fft.setInput();
   
   //a = createA('/data/UchenLatin.ttf', 'Download');
-  b = createA('https://sylvain-girard.github.io/A-to-the-K/fontview/', 'Font View');
+  b = createA('https://sylvain-girard.github.io/fontview/', 'Font View');
 
 
 }
