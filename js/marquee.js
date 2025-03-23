@@ -1,4 +1,10 @@
 function initMarqueeScrollDirection() {
+  // Check if GSAP and ScrollTrigger are available
+  if (!window.gsap || !window.ScrollTrigger) {
+    console.error('GSAP or ScrollTrigger not loaded. Cannot initialize marquee effects.');
+    return;
+  }
+
   document
     .querySelectorAll("[data-marquee-scroll-direction-target]")
     .forEach((marquee) => {
@@ -108,4 +114,13 @@ function initMarqueeScrollDirection() {
     });
 }
 
-initMarqueeScrollDirection();
+// Check if document is already loaded
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  // If already loaded, initialize immediately
+  setTimeout(initMarqueeScrollDirection, 100);
+} else {
+  // Otherwise wait for DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initMarqueeScrollDirection, 100);
+  });
+}
