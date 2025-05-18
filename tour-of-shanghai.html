@@ -70,6 +70,58 @@
       .hero-card {
       	transform: scale(0);
       }
+      /* Next Project Section Styles */
+      .next-project-section {
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s ease-out;
+        background-color: var(--projects--project-color);
+        margin-top: 4rem;
+      }
+      .next-project-section.visible {
+        height: 20vh;
+      }
+      .next-project-wrapper {
+        padding: 4rem var(--edge);
+        position: relative;
+        height: 100%;
+      }
+      .next-project-image {
+        width: 200px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: var(--radius);
+        margin: 0 2rem;
+      }
+      .next-project-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+      @media (pointer: fine) {
+        .next-project-section .project-details-wrapper {
+          transform: translate(0px, 100%);
+        }
+        .next-project-section .project-image-overlay {
+          opacity: 0;
+        }
+      }
+      @media (pointer: coarse) {
+        .next-project-section .marqueewrap {
+          display: flex;
+          position: static;
+        }
+        .next-project-section .marqueewrap.behind {
+          z-index: 1;
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body data-project="1" class="project-page">
@@ -647,6 +699,136 @@
             </div>
           </div>
         </section>
+        <section class="next-project-section">
+          <div class="next-project-wrapper">
+            <div class="_3d-perspective">
+              <div class="marqueewrap">
+                <div
+                  data-marquee-duplicate="2"
+                  data-marquee-scroll-direction-target=""
+                  data-marquee-direction="left"
+                  data-marquee-status="normal"
+                  data-marquee-speed="15"
+                  data-marquee-scroll-speed="10"
+                  class="marq-advanced"
+                >
+                  <div
+                    data-marquee-scroll-target=""
+                    class="marq-advanced_scroll"
+                  >
+                    <div
+                      data-marquee-collection-target=""
+                      class="marq-advanced_collection"
+                    >
+                      <div class="marq-advanced_item">
+                        <h3 class="project-text heading-style-h1">
+                          Year of the Dragon
+                        </h3>
+                      </div>
+                      <div class="marq-advanced_item">
+                        <img
+                          src="images/final3_1.webp"
+                          alt="Year of the Dragon"
+                          class="next-project-image"
+                        />
+                      </div>
+                      <div class="marq-advanced_item">
+                        <h3 class="project-text heading-style-h1">
+                          Year of the Dragon
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="marqueewrap behind">
+                <div
+                  data-marquee-duplicate="2"
+                  data-marquee-scroll-direction-target=""
+                  data-marquee-direction="left"
+                  data-marquee-status="normal"
+                  data-marquee-speed="15"
+                  data-marquee-scroll-speed="10"
+                  class="marq-advanced"
+                >
+                  <div
+                    data-marquee-scroll-target=""
+                    class="marq-advanced_scroll"
+                  >
+                    <div
+                      data-marquee-collection-target=""
+                      class="marq-advanced_collection"
+                    >
+                      <div class="marq-advanced_item">
+                        <h3 class="project-text heading-style-h1">
+                          Year of the Dragon
+                        </h3>
+                      </div>
+                      <div class="marq-advanced_item">
+                        <img
+                          src="images/final3_1.webp"
+                          alt="Year of the Dragon"
+                          class="next-project-image"
+                        />
+                      </div>
+                      <div class="marq-advanced_item">
+                        <h3 class="project-text heading-style-h1">
+                          Year of the Dragon
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              href="beaubnana-year-of-the-dragon.html"
+              class="next-project-link"
+            ></a>
+          </div>
+        </section>
+
+        <div
+          style="--projects--project-color: var(--projects--project2)"
+          class="next-up-wrapper"
+        >
+          <a
+            href="/beaubnana-year-of-the-dragon.html"
+            class="next-up_marquee-wrapper w-inline-block"
+            ><div
+              data-marquee-duplicate="2"
+              data-marquee-scroll-direction-target=""
+              data-marquee-direction="left"
+              data-marquee-status="normal"
+              data-marquee-speed="15"
+              data-marquee-scroll-speed="10"
+              class="marq-advanced"
+            >
+              <div data-marquee-scroll-target="" class="marq-advanced_scroll">
+                <div
+                  data-marquee-collection-target=""
+                  class="marq-advanced_collection project-pill"
+                >
+                  <div class="marq-advanced_item">
+                    <div class="marq-advanced_image-wrapper">
+                      <img
+                        src="/images/final0500_1final0500.webp"
+                        loading="lazy"
+                        alt=""
+                        class="marq-advanced_image"
+                      />
+                    </div>
+                    <h3 class="marq-advanced_text heading-style-h1">
+                      Year of the Dragon
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div></a
+          >
+          <div class="next-up-tag"><p>Next Up</p></div>
+        </div>
+
         <footer class="section footer project">
           <div class="footer2 inset-effect project">
             <h4 data-letter-stagger="" class="footer-heading">
@@ -704,7 +886,7 @@
           </div>
           <div class="sub-footer playground">
             <div stagger-link-text="" class="footer-text">
-              Copyright <span id="current-year" class="text-span">2023</span> ©
+              Copyright <span id="current-year" class="text-span">2023</span> ©
             </div>
             <a href="#main" class="w-inline-block">
               <div stagger-link-text="" class="footer-text">back to top</div>
@@ -733,7 +915,7 @@
       src="https://uploads-ssl.webflow.com/645e0e1ff7fdb6dc8c85f3a2/648b1b0b9d6638f9da912dc2_lenis-offbrand-v2.txt"
     ></script>
     <!-- Add the script loader -->
-    <script src="js/libraries.js"></script>
     <script src="js/script-loader.js"></script>
+    <script src="js/next-project.js"></script>
   </body>
 </html>

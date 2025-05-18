@@ -74,13 +74,26 @@
     </script>
     <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon" />
     <link href="images/webclip.svg" rel="apple-touch-icon" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+          "cannon-es": "https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js",
+          "lil-gui": "https://unpkg.com/lil-gui@0.19.1/dist/lil-gui.esm.js",
+          "cannon-es-debugger": "https://cdn.jsdelivr.net/npm/cannon-es-debugger@1.0.0/dist/cannon-es-debugger.js"
+        }
+      }
+    </script>
     <style>
-      .hero-section + section, .project-hero + section, .nav_component > .grid-wrapper * {  
-      	opacity: 0;
+      /* .hero-section + section,
+      .project-hero + section,
+      .nav_component > .grid-wrapper * {
+        opacity: 0;
       }
       .hero-card {
-      	transform: scale(0);
-      }
+        transform: scale(0);
+      } */
     </style>
     <style>
       a,
@@ -1047,24 +1060,20 @@
           </div>
         </section>
         <section class="section about">
-          <div marquee-section="yes" class="section_about inset-effect">
+          <div class="section_about inset-effect">
             <div
-              id="w-node-_78bbc554-ec5b-fe45-7c2f-c2f5ad578337-482ebf4f"
-              class="spline-logo-wrapper"
-            >
-              <div
-                class="spline-logo"
-                data-w-id="bcc29973-9e89-3124-2f64-37e800f58abb"
-                data-animation-type="spline"
-                data-spline-url="https://prod.spline.design/O0Z2v7-tsQrwsTpE/scene.splinecode"
-              >
-                <canvas></canvas>
-              </div>
-            </div>
-            <div
-              id="w-node-d4a089b8-8157-d711-d6c8-d7dedd649d83-482ebf4f"
-              class="about_text"
-            >
+              id="three-container"
+              style="
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                background-color: inherit;
+              "
+            ></div>
+            <div class="about_text">
               <p>
                 I&#x27;m a 3D artist and motion designer with a passion for
                 crafting immersive visual experiences. My work combines
@@ -1076,28 +1085,6 @@
                 and spark connections through motion that&#x27;s both meaningful
                 and memorable.
               </p>
-            </div>
-            <div class="marqueewrap z-1">
-              <div
-                data-marquee-duplicate="2"
-                data-marquee-scroll-direction-target=""
-                data-marquee-direction="left"
-                data-marquee-status="normal"
-                data-marquee-speed="15"
-                data-marquee-scroll-speed="10"
-                class="marq-advanced"
-              >
-                <div data-marquee-scroll-target="" class="marq-advanced_scroll">
-                  <div
-                    data-marquee-collection-target=""
-                    class="marq-advanced_collection"
-                  >
-                    <div class="marq-advanced_item">
-                      <h3 class="project-text heading-style-h1">About</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

@@ -11,7 +11,7 @@
   --dark-purple: #3c2a4a;
   --pistachio: #d8f2a0;
   --projects--project0: var(--dark-purple);
-  --projects--project-about: #ffb1f3;
+  --projects--project-about: #ff96ef;
   --marquee-gap: 2rem;
   --background-color: #fffef5;
   --color-burn-black: #80808066;
@@ -502,6 +502,74 @@ blockquote {
 .section.video {
   padding-top: var(--edge);
   padding-bottom: 0;
+}
+
+
+
+.next-up-wrapper {
+  z-index: 99;
+  background-color: var(--projects--project-color);
+  transform-origin: 50% 100%;
+  border-radius: 99rem;
+  flex-flow: column;
+  width: 15rem;
+  font-size: 2rem;
+  transition: transform .4s cubic-bezier(.175, .885, .32, 1.275);
+  display: flex;
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+  /* transform: translate(-50%); */
+}
+
+.next-up_marquee-wrapper {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: clip;
+}
+
+.next-up-tag {
+  text-transform: uppercase;
+  background-color: 
+color-mix(in srgb, var(--projects--project-color), white 40%);
+  color: 
+color-mix(in hsl, var(--projects--project-color), black 50%);
+  border-radius: 99rem;
+  padding: .125rem .5rem;
+  font-size: 1rem;
+  position: absolute;
+  inset: -.5rem 50% auto auto;
+  transform: translate(50%, -100%);
+}
+
+.marq-advanced_image-wrapper {
+  aspect-ratio: 2;
+  border-radius: 99rem;
+  align-self: stretch;
+  width: 4em;
+  position: relative;
+  overflow: clip;
+}
+
+.marq-advanced_text {
+  text-align: center;
+  text-transform: capitalize;
+  white-space: nowrap;
+  color: 
+color-mix(in hsl, var(--projects--project-color), black 50%);
+  font-family: Nyghtserif, Times New Roman, sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.1;
+  font-size: inherit;
+  margin-bottom: 0;
+  margin-right: .5em;
+}
+
+.next-up-wrapper:hover {
+  transform: translate(-50%, 0px) scale(1.2);
 }
 
 .section.footer {
@@ -2207,7 +2275,7 @@ blockquote {
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
   padding: 5rem;
   display: grid;
@@ -2259,6 +2327,7 @@ blockquote {
   display: flex;
   position: sticky;
   top: 5rem;
+  z-index: 3;
 }
 
 .spline-logo-wrapper {
@@ -2378,6 +2447,7 @@ blockquote {
   justify-content: flex-start;
   align-items: center;
   display: flex;
+  gap: 1rem;
 }
 
 .ar-3-2 {

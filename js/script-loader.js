@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
                    window.location.href.endsWith("index.html");
   
   // Function to load a script
-  function loadScript(src) {
+  function loadScript(src, isModule = false) {
     return new Promise((resolve, reject) => {
       // Check if script is already loaded
       if (document.querySelector(`script[src="${src}"]`)) {
@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const script = document.createElement('script');
       script.src = src;
       script.async = true;
+      if (isModule) {
+        script.type = 'module';
+      }
       
       script.onload = () => {
         console.log(`Loaded: ${src}`);
@@ -64,8 +67,10 @@ document.addEventListener("DOMContentLoaded", function() {
         'js/main.js',
         'js/text.js',
         'js/cursor.js',
+        'js/marquee.js',
         'js/footer.js',
-        'js/vimeo-player.js'
+        'js/vimeo-player.js',
+        'js/next-project.js'
       ];
       
       return Promise.all(globalScripts.map(src => loadScript(src)));
@@ -78,11 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log('Loading homepage scripts...');
         const homepageScripts = [
           'js/background.js',
-          'js/marquee.js',
-          'js/projects.js'
+          'js/projects.js',
+          'js/three-feature.js'
         ];
         
-        return Promise.all(homepageScripts.map(src => loadScript(src)));
+        return Promise.all(homepageScripts.map(src => {
+          if (src === 'js/three-feature.js') {
+            return loadScript(src, true);
+          }
+          return loadScript(src);
+        }));
       }
     })
     .then(() => {
