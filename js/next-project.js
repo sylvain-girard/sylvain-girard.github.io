@@ -19,7 +19,7 @@ if (nextUpWrapper) {
     trigger: 'footer', // Changed to trigger when the footer comes into view
     start: "top bottom", // When the top of the footer hits the bottom of the viewport
     end: "bottom top", // When the bottom of the footer leaves the top of the viewport
-    markers: true, // Uncomment for debugging
+    //markers: true, // Uncomment for debugging
     // once: true, // Removed to allow replay
     toggleActions: "play none none reverse", // Handles play and reverse on scroll direction
     onEnter: () => {

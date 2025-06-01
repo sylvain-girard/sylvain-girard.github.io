@@ -72,41 +72,49 @@ function initializeVimeoPlayer(container) {
     console.error("Error initializing Vimeo player:", error);
   });
   // Add click event to the play/pause button
-  playPauseButton.addEventListener('click', function() {
-    if (playing) {
-      player.pause().then(() => {
-        pauseIcon.classList.add('hide-this');
-        playIcon.classList.remove('hide-this');
-        playing = false;
-        userPaused = true; // User manually paused
-      }).catch(err => console.error("Error pausing:", err));
-    } else {
-      player.setCurrentTime(startTime).then(() => {
-        return player.play();
-      }).then(() => {
-        playIcon.classList.add('hide-this');
-        pauseIcon.classList.remove('hide-this');
-        playing = true;
-        userPaused = false; // User manually played
-      }).catch(err => console.error("Error playing:", err));
-    }
-  });
+  if (playPauseButton) {
+    playPauseButton.addEventListener('click', function() {
+      if (playing) {
+        player.pause().then(() => {
+          pauseIcon.classList.add('hide-this');
+          playIcon.classList.remove('hide-this');
+          playing = false;
+          userPaused = true; // User manually paused
+        }).catch(err => console.error("Error pausing:", err));
+      } else {
+        player.setCurrentTime(startTime).then(() => {
+          return player.play();
+        }).then(() => {
+          playIcon.classList.add('hide-this');
+          pauseIcon.classList.remove('hide-this');
+          playing = true;
+          userPaused = false; // User manually played
+        }).catch(err => console.error("Error playing:", err));
+      }
+    });
+  } else {
+    console.error('[Vimeo Player] Play/Pause button ([data-vimeo-play-pause-button]) not found in container:', container);
+  }
   // Add click event to the audio button
-  audioButton.addEventListener('click', function() {
-    if (audioEnabled) {
-      player.setVolume(0).then(() => {
-        audioOnIcon.classList.add('hide-this');
-        audioOffIcon.classList.remove('hide-this');
-        audioEnabled = false;
-      }).catch(err => console.error("Error muting:", err));
-    } else {
-      player.setVolume(1).then(() => {
-        audioOffIcon.classList.add('hide-this');
-        audioOnIcon.classList.remove('hide-this');
-        audioEnabled = true;
-      }).catch(err => console.error("Error unmuting:", err));
-    }
-  });
+  if (audioButton) {
+    audioButton.addEventListener('click', function() {
+      if (audioEnabled) {
+        player.setVolume(0).then(() => {
+          audioOnIcon.classList.add('hide-this');
+          audioOffIcon.classList.remove('hide-this');
+          audioEnabled = false;
+        }).catch(err => console.error("Error muting:", err));
+      } else {
+        player.setVolume(1).then(() => {
+          audioOffIcon.classList.add('hide-this');
+          audioOnIcon.classList.remove('hide-this');
+          audioEnabled = true;
+        }).catch(err => console.error("Error unmuting:", err));
+      }
+    });
+  } else {
+    console.warn('[Vimeo Player] Audio button ([data-vimeo-audio-button]) not found in container:', container);
+  }
   // Add hover events if hover play is enabled
   if (hoverPlayEnabled) {
     container.addEventListener('mouseenter', function() {

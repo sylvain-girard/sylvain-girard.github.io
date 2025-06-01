@@ -586,72 +586,40 @@
                 </div>
               </div>
               <div class="project_item">
-                <div
-                  data-poster-url="videos/preview-poster-00001.jpg"
-                  data-video-urls="videos/preview-transcode.mp4,videos/preview-transcode.webm"
-                  data-autoplay="true"
-                  data-loop="true"
-                  data-wf-ignore="true"
-                  class="project-video inset-effect w-background-video w-background-video-atom"
-                >
-                  <video
-                    id="7da97184-135b-a59e-2006-57e04767c68e-video"
-                    autoplay=""
-                    loop=""
-                    style="
-                      background-image: url('videos/preview-poster-00001.jpg');
-                    "
-                    muted=""
-                    playsinline=""
-                    data-wf-ignore="true"
-                    data-object-fit="cover"
-                  >
-                    <source
-                      src="videos/preview-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="videos/preview-transcode.webm"
-                      data-wf-ignore="true"
-                    /></video
-                  ><noscript>
-                    <style>
-                      [data-wf-bgvideo-fallback-img] {
-                        display: none;
-                      }
-                      @media (prefers-reduced-motion: reduce) {
-                        [data-wf-bgvideo-fallback-img] {
-                          position: absolute;
-                          z-index: -100;
-                          display: inline-block;
-                          height: 100%;
-                          width: 100%;
-                          object-fit: cover;
-                        }
-                      }</style
-                    ><img
-                      data-wf-bgvideo-fallback-img="true"
-                      src="videos/preview-poster-00001.jpg"
-                      alt=""
-                    />
-                  </noscript>
-                  <div aria-live="polite">
-                    <button
-                      type="button"
-                      data-w-bg-video-control="true"
-                      aria-controls="7da97184-135b-a59e-2006-57e04767c68e-video"
-                      class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control"
-                    >
-                      <span>
-                        <div class="play-pause-button">
-                          <div data-pause="" class="play-pause-icon w-embed">
+                <div class="vimeo-bg-wrapper inset-effect">
+                  <div data-vimeo-container="" class="vimeo-container">
+                    <div class="video-background-section">
+                      <div class="video-wrapper">
+                        <div class="video-embed">
+                          <iframe
+                            src="https://player.vimeo.com/video/1089444129?background=1&amp;quality=1080p"
+                            frameborder="0"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen=""
+                            width="100%"
+                            height="100%"
+                            data-vimeo-player=""
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="play-pause-sticky-wrapper">
+                      <div data-no-blur="" class="play-pause-button-wrapper">
+                        <button
+                          data-vimeo-play-pause-button=""
+                          class="play-pause-button"
+                        >
+                          <div
+                            id="vimeoPauseIcon"
+                            data-vimeo-pause-icon=""
+                            class="play-pause-icon w-embed"
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               xmlns:xlink="http://www.w3.org/1999/xlink"
                               aria-hidden="true"
                               role="img"
                               class="iconify iconify--ic"
-                              width="100%"
                               height="100%"
                               preserveaspectratio="xMidYMid meet"
                               viewbox="0 0 24 24"
@@ -662,11 +630,30 @@
                               ></path>
                             </svg>
                           </div>
-                        </div> </span
-                      ><span hidden="">
-                        <div class="play-pause-button"></div>
-                      </span>
-                    </button>
+                          <div
+                            id="vimeoPlayIcon"
+                            data-vimeo-play-icon=""
+                            class="play-pause-icon hide-this w-embed"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              aria-hidden="true"
+                              role="img"
+                              class="iconify iconify--ic"
+                              height="100%"
+                              preserveaspectratio="xMidYMid meet"
+                              viewbox="0 0 24 24"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -846,7 +833,7 @@
           </div>
           <div class="sub-footer playground">
             <div stagger-link-text="" class="footer-text">
-              Copyright <span id="current-year" class="text-span">2023</span> ©
+              Copyright <span id="current-year" class="text-span">2023</span> ©
             </div>
             <a href="#main" class="w-inline-block">
               <div stagger-link-text="" class="footer-text">back to top</div>
@@ -858,7 +845,7 @@
     <!--  LENIS -->
     <!--  Lenis Script Controls  -->
     <!-- Add the script loader -->
-    <script src="js/libraries.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="js/script-loader.js"></script>
   </body>
 </html>

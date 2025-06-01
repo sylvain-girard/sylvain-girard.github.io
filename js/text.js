@@ -150,7 +150,7 @@ document.querySelectorAll("[data-letter-stagger]").forEach((element) => {
       .timeline({
         scrollTrigger: {
           trigger: element,
-          start: "top bottom",
+          start: "top 80%",
           onEnter: () => console.log("ScrollTrigger entered for:", element),
         },
       })
