@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'js/marquee.js',
         'js/footer.js',
         'js/vimeo-player.js',
+        'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js',
         'js/next-project.js'
       ];
       
