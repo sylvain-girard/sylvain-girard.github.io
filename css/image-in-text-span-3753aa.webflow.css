@@ -529,6 +529,7 @@ blockquote {
   height: 100%;
   position: relative;
   overflow: clip;
+  font-size: clamp(0.7em, 4vw, 1em);
 }
 
 .next-up-tag {
@@ -2276,7 +2277,7 @@ color-mix(in hsl, var(--projects--project-color), black 50%);
   flex: 1;
   align-items: flex-end;
   width: 100%;
-  padding: 5rem;
+  padding: min(5vw,5rem);
   display: flex;
   position: relative;
 }
@@ -2306,10 +2307,7 @@ color-mix(in hsl, var(--projects--project-color), black 50%);
 }
 
 .about_text {
-  padding-top: var(--radius);
-  padding-right: var(--radius);
-  padding-bottom: var(--radius);
-  padding-left: var(--radius);
+  padding: var(--radius);
   grid-column-gap: 5rem;
   grid-row-gap: 5rem;
   border-top-left-radius: var(--radius);
@@ -2325,7 +2323,7 @@ color-mix(in hsl, var(--projects--project-color), black 50%);
   line-height: 1.5;
   display: flex;
   position: sticky;
-  top: 5rem;
+  top: min(5vw,5rem);
   z-index: 3;
 }
 

@@ -59,9 +59,9 @@ const config = {
     createPlaneHelpers: false,   // Production: false
     showGridHelper: false        // Production: false
   },
-  numObjects: isMobile ? 75 : 150,
-  baseBoundZ: parseFloat(localStorage.getItem('baseBoundZ')) || (isMobile ? 4.5 : 6),
-  mouseForceMultiplier: parseFloat(localStorage.getItem('mouseForceMultiplier')) || (isMobile ? 900.0 : 1200.0),
+  numObjects: isMobile ? 37 : 150,
+  baseBoundZ: parseFloat(localStorage.getItem('baseBoundZ')) || (isMobile ? 2.25 : 6),
+  mouseForceMultiplier: parseFloat(localStorage.getItem('mouseForceMultiplier')) || (isMobile ? 600.0 : 1200.0),
   maxInteractionDistance: 2.2,
   fieldOfInfluenceDot: -0.2,
 };
@@ -366,7 +366,7 @@ if (!container) {
   const world = new CANNON.World()
   world.gravity.set(0, -9.82, 0) 
   world.broadphase = new CANNON.SAPBroadphase(world) 
-  world.solver.iterations = 5; 
+  world.solver.iterations = isMobile ? 3 : 5; 
 
   const objectMaterial = new CANNON.Material('objectMaterial')
   const planeMaterial = new CANNON.Material('planeMaterial')
@@ -454,7 +454,7 @@ if (!container) {
         return;
       }
 
-      const scaleFactor = 1.2;
+      const scaleFactor = isMobile ? 0.8 : 1.2;
       modelGeometry.scale(scaleFactor, scaleFactor, scaleFactor);
 
       modelGeometry.computeBoundingBox();
