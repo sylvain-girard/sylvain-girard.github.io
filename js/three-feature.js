@@ -13,7 +13,7 @@ import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
 import { FXAAShader } from 'three/addons/shaders/FXAAShader.js';
-// import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js'; // Not used
+import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 
 // Helper function to detect mobile
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
@@ -427,6 +427,97 @@ if (!container) {
 
   const objLoader = new OBJLoader()
   
+  // Custom function to compute normals with angle threshold (like phong angle)
+  function computeNormalsWithAngle(geometry, angleThreshold = Math.PI / 2) {
+    const positions = geometry.attributes.position.array;
+    const indices = geometry.index ? geometry.index.array : null;
+    const vertexCount = positions.length / 3;
+    
+    // Create arrays for storing normals
+    const normals = new Float32Array(positions.length);
+    const faceNormals = [];
+    const vertexFaces = Array.from({ length: vertexCount }, () => []);
+    
+    // Calculate face normals and track which faces each vertex belongs to
+    const faceCount = indices ? indices.length / 3 : vertexCount / 3;
+    
+    for (let i = 0; i < faceCount; i++) {
+      const i0 = indices ? indices[i * 3] : i * 3;
+      const i1 = indices ? indices[i * 3 + 1] : i * 3 + 1;
+      const i2 = indices ? indices[i * 3 + 2] : i * 3 + 2;
+      
+      const v0 = new THREE.Vector3(positions[i0 * 3], positions[i0 * 3 + 1], positions[i0 * 3 + 2]);
+      const v1 = new THREE.Vector3(positions[i1 * 3], positions[i1 * 3 + 1], positions[i1 * 3 + 2]);
+      const v2 = new THREE.Vector3(positions[i2 * 3], positions[i2 * 3 + 1], positions[i2 * 3 + 2]);
+      
+      const edge1 = new THREE.Vector3().subVectors(v1, v0);
+      const edge2 = new THREE.Vector3().subVectors(v2, v0);
+      const normal = new THREE.Vector3().crossVectors(edge1, edge2).normalize();
+      
+      faceNormals[i] = normal;
+      vertexFaces[i0].push(i);
+      vertexFaces[i1].push(i);
+      vertexFaces[i2].push(i);
+    }
+    
+    // Calculate vertex normals by averaging face normals within angle threshold
+    for (let v = 0; v < vertexCount; v++) {
+      const vertexNormal = new THREE.Vector3();
+      const faces = vertexFaces[v];
+      
+      if (faces.length === 0) continue;
+      
+      // Group faces by angle similarity
+      const smoothGroups = [];
+      
+      for (const faceIndex of faces) {
+        const faceNormal = faceNormals[faceIndex];
+        let addedToGroup = false;
+        
+        for (const group of smoothGroups) {
+          const groupNormal = group.normal;
+          const angle = Math.acos(Math.max(-1, Math.min(1, faceNormal.dot(groupNormal))));
+          
+          if (angle <= angleThreshold) {
+            group.normals.push(faceNormal);
+            group.normal.add(faceNormal).normalize();
+            addedToGroup = true;
+            break;
+          }
+        }
+        
+        if (!addedToGroup) {
+          smoothGroups.push({
+            normal: faceNormal.clone(),
+            normals: [faceNormal]
+          });
+        }
+      }
+      
+      // Use the largest smooth group's normal
+      if (smoothGroups.length > 0) {
+        let largestGroup = smoothGroups[0];
+        for (const group of smoothGroups) {
+          if (group.normals.length > largestGroup.normals.length) {
+            largestGroup = group;
+          }
+        }
+        
+        // Average the normals in the largest group
+        for (const normal of largestGroup.normals) {
+          vertexNormal.add(normal);
+        }
+        vertexNormal.normalize();
+      }
+      
+      normals[v * 3] = vertexNormal.x;
+      normals[v * 3 + 1] = vertexNormal.y;
+      normals[v * 3 + 2] = vertexNormal.z;
+    }
+    
+    geometry.setAttribute('normal', new THREE.BufferAttribute(normals, 3));
+  }
+  
   objLoader.load(
     'objects/logo.obj',
     function (loadedObj) {
@@ -484,11 +575,9 @@ if (!container) {
       // spawnRegionHeight = boxHeight - discHalfHeight * 2; // Recalculated, but not directly used later for spawning logic
       interactionPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -1.0); 
 
-      if (modelGeometry.index !== null) {
-        modelGeometry = modelGeometry.toNonIndexed();
-      }
-      
-      modelGeometry.computeVertexNormals();
+      // Fix for smooth shading: merge duplicate vertices first, then compute smooth normals
+      modelGeometry = BufferGeometryUtils.mergeVertices(modelGeometry);
+      computeNormalsWithAngle(modelGeometry, Math.PI / 2); // 60 degrees smoothing angle (like phong angle)
       
       if (envMap) {
         modelMaterial.envMap = envMap;
