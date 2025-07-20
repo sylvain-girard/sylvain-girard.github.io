@@ -8,30 +8,38 @@ document.addEventListener("DOMContentLoaded", function() {
                    window.location.pathname === "/index.html" || 
                    window.location.href.endsWith("index.html");
   
+  // Determine the path prefix based on directory depth
+  const pathSegments = window.location.pathname.split('/').filter(segment => segment !== '');
+  // If we're in a subdirectory (not root), we need to go up one level
+  const pathPrefix = pathSegments.length > 1 || (pathSegments.length === 1 && pathSegments[0] !== 'index.html') ? '../' : '';
+  
   // Function to load a script
   function loadScript(src, isModule = false) {
     return new Promise((resolve, reject) => {
+      // Don't modify external URLs (starting with http)
+      const scriptSrc = src.startsWith('http') ? src : pathPrefix + src;
+      
       // Check if script is already loaded
-      if (document.querySelector(`script[src="${src}"]`)) {
-        console.log(`Script already loaded: ${src}`);
+      if (document.querySelector(`script[src="${scriptSrc}"]`)) {
+        console.log(`Script already loaded: ${scriptSrc}`);
         resolve();
         return;
       }
       
       const script = document.createElement('script');
-      script.src = src;
+      script.src = scriptSrc;
       script.async = true;
       if (isModule) {
         script.type = 'module';
       }
       
       script.onload = () => {
-        console.log(`Loaded: ${src}`);
+        console.log(`Loaded: ${scriptSrc}`);
         resolve();
       };
       
       script.onerror = () => {
-        console.error(`Failed to load: ${src}`);
+        console.error(`Failed to load: ${scriptSrc}`);
         reject();
       };
       
